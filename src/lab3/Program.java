@@ -9,6 +9,11 @@ public class Program {
 //		String s1 = Program.getString("Enter a string: ");
 //		System.out.printf("Provided int was: %d, provided string was: %s", i1, s1);
 		Program.theLunchQueue();
+		int pounds = Program.getInt("Enter a weight in pounds: ");
+		Program.convertInputToStonesPounds(pounds);
+		
+		int kgs = Program.getInt("Enter a weight in kgs: ");
+		Program.convertKgsToStonesPounds(kgs);
 	}
 	
 	public static int getInt(String prompt) {
@@ -40,4 +45,16 @@ public class Program {
 		System.out.printf("Hello, your lunch is %s, with %d potatoes and %d sprouts\n", mainCourse, potatoes, sprouts);
 	}
 
+	static void convertInputToStonesPounds(int pounds) {
+		int stones = pounds / 14;
+		int remainderPounds = pounds % 14;
+		System.out.printf("%d pounds is equal to %d stone %d pounds\n", pounds, stones, remainderPounds);
+	}
+	
+	static void convertKgsToStonesPounds(int kgs) {
+		double pounds = kgs * 2.2;
+		int poundsInt = (int) pounds;
+		
+		Program.convertInputToStonesPounds(poundsInt);
+	}
 }
