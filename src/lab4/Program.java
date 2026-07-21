@@ -11,6 +11,14 @@ public class Program {
 		System.out.println(Program.findZero(numbers));
 		int[] numbers2 = {1, 0, -5, 7, 0, 4, 0, 8};
 		System.out.println(Program.findLastZero(numbers2));
+		String[] names = {"alice", "bob", "claire", "derek", "emily"};
+		int[] marks = {77, 61, 53, 30, 55};
+		String grade;
+		for (int i = 0; i < names.length; i++) {
+			grade = Program.getGrade(marks[i]);
+			System.out.printf("Student %s got grade: %s\n", names[i], grade);
+		}
+		Program.multiplicationTable(10, 12);
 	}
 	
 	// Task 1
@@ -67,15 +75,40 @@ public class Program {
 		}
 		return -1;
 	}
-
+	
 	// Task 5 modified - find last zero
 	public static int findLastZero(int[] nums) {
-		for (int i = nums.length - 1; i >= 0 ; i--) {
+		for (int i = nums.length - 1; i >= 0; i--) {
 			if (nums[i] == 0) {
 				return i;
 			}
 		}
 		return -1;
 	}
+	
+	// Part 2 - Grades for multiple students
+	public static String getGrade(int mark) {
+		if (mark < 0 || mark > 100) {
+			return "N/A (Invalid score)";
+		}
+		else if (mark < 50) {
+			return "Fail";
+		} else if (mark <= 60) {
+			return "Pass";
+		} else if (mark <= 70) {
+			return "Merit";
+		} else {
+			return "Distinction";
+		}
+	}
 
+	// Part 3
+	public static void multiplicationTable(int cols, int rows) {
+		for (int i = 1; i <= rows; i++) {
+			for (int j = 1; j <= cols; j++) {
+				System.out.printf("%5d", i * j);
+			}
+			System.out.printf("\n");
+		}
+	}
 }
