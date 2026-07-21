@@ -31,15 +31,18 @@ public class Program {
 	}
 	
 	public static void theLunchQueue() {
-		String mainCourse = Program.getString("What main dish would you like (fish, burgers or veg)?");
-		switch (mainCourse) {
-		    case "veg", "fish", "burgers":
-		    	break;
-		    default:
-		    	System.out.printf("Main choice %s is invalid. Defaulting to burgers\n", mainCourse);
-		    	mainCourse = "burgers";
-		    	break;
-		}
+		String mainCourse; 
+		do {
+		    mainCourse = Program.getString("What main dish would you like (fish, burgers or veg)?");
+		} while (!(mainCourse.toLowerCase().equals("veg")) && !(mainCourse.toLowerCase().equals("fish")) && !(mainCourse.toLowerCase().equals("burgers"))
+		// switch (mainCourse) {
+		//     case "veg", "fish", "burgers":
+		//     	break;
+		//     default:
+		//     	System.out.printf("Main choice %s is invalid. Defaulting to burgers\n", mainCourse);
+		//     	mainCourse = "burgers";
+		//     	break;
+		// }
 		int potatoes = Program.getInt("How many potatoes do you want?");
 		int sprouts = Program.getInt("How many sprouts do you want?");
 		System.out.printf("Hello, your lunch is %s, with %d potatoes and %d sprouts\n", mainCourse, potatoes, sprouts);
