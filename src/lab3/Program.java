@@ -5,9 +5,10 @@ public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int i1 = Program.getInt("Please enter an int: ");
-		String s1 = Program.getString("Enter a string: ");
-		System.out.printf("Provided int was: %d, provided string was: %s", i1, s1);
+//		int i1 = Program.getInt("Please enter an int: ");
+//		String s1 = Program.getString("Enter a string: ");
+//		System.out.printf("Provided int was: %d, provided string was: %s", i1, s1);
+		Program.theLunchQueue();
 	}
 	
 	public static int getInt(String prompt) {
@@ -22,6 +23,21 @@ public class Program {
 		Scanner s = new Scanner(System.in);
 		String s1 = s.nextLine();
 		return s1;
+	}
+	
+	public static void theLunchQueue() {
+		String mainCourse = Program.getString("What main dish would you like (fish, burgers or veg)?");
+		switch (mainCourse) {
+		    case "veg", "fish", "burgers":
+		    	break;
+		    default:
+		    	System.out.printf("Main choice %s is invalid. Defaulting to burgers\n", mainCourse);
+		    	mainCourse = "burgers";
+		    	break;
+		}
+		int potatoes = Program.getInt("How many potatoes do you want?");
+		int sprouts = Program.getInt("How many sprouts do you want?");
+		System.out.printf("Hello, your lunch is %s, with %d potatoes and %d sprouts\n", mainCourse, potatoes, sprouts);
 	}
 
 }
