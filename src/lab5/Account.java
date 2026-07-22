@@ -32,7 +32,7 @@ public class Account {
 	}
 	
 	public String getDetails() {
-		return String.format("Account # %d: Owner %s, balance %g", this.id, this.owner, this.balance);
+		return String.format("Account # %d: Owner %s, balance %.2f", this.id, this.owner, this.balance);
 	}
 	
 	public String getOwner() {
