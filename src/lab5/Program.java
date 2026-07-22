@@ -14,6 +14,12 @@ public class Program {
 		for (Account a : accounts) {
 			System.out.println(a.getDetails());
 		}
+		Account myAccount = new Account(4, "john smith", 100);
+		myAccount.addInterest();
+		System.out.println(myAccount.getDetails());
+		Account partnerAccount = myAccount;
+		partnerAccount.addInterest();
+		System.out.println(myAccount.getDetails());
 	}
 
 }
