@@ -3,11 +3,13 @@ package lab6;
 public class Vehicle {
 	private int speed, lane, distance;
 	RegistrationPlate regPlate;
+	private static int count;
 	
 	public Vehicle(int speed, int lane) {
 		this.speed = speed;
 		this.lane = lane;
 		this.regPlate = RegistrationPlateFactory.getNextRegistrationPlate();
+		Vehicle.count++;
 	}
 	
 	public int getSpeed() {
@@ -20,6 +22,10 @@ public class Vehicle {
 	
 	public int getLane() {
 		return this.lane;
+	}
+
+	public static int getVehicleCount() {
+		return Vehicle.count;
 	}
 	
 	public void setDistance(int d) {
