@@ -30,6 +30,7 @@ public class Program {
 				if (v.getDistance() >= 1000) {
 					winner = v;
 					raceOngoing = false;
+					break;
 				}
 			}
 		} while (raceOngoing); // until a vehicle hits d=1000
