@@ -39,4 +39,9 @@ public class Account {
 		return this.owner;
 	}
 
+	public void addInterest() {
+		// 2.5% = 0.025
+		this.balance *= 1.025;
+	}
+
 }
