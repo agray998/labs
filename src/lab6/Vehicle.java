@@ -31,16 +31,18 @@ public class Vehicle {
 	}
 	
 	public void accelerate(int amount) {
-		this.distance += amount;
 		if (this.speed + amount > 200) {
+			this.speed = 200;
 			System.out.println("Max speed reached");
 		} else {
 			this.speed += amount;
 		}
+		this.distance += this.speed;
 	}
 	
 	public void brake(int amount) {
 		this.speed -= amount;
+		this.distance += this.speed;
 	}
 	
 	public String getDetails() {
