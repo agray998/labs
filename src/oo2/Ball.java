@@ -3,7 +3,7 @@ import java.awt.Color;
 
 public class Ball {
 	public int x, y, width, height;
-	private int dirX, dirY;
+	int dirX, dirY;
 	private static int worldW, worldH;
 	private Color colour;
 	
