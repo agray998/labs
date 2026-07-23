@@ -79,6 +79,7 @@ public class Game extends Canvas {
 	public void paint(Graphics g) {
 		g.drawRect(0, 0, Ball.getWorldW(), Ball.getWorldH());
 		for (Ball ball : this.balls) {
+			g.setColor(ball.getColour());
 			g.drawOval(ball.x, ball.y, ball.width, ball.height);
 		}
 	}
