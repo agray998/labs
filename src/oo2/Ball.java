@@ -1,5 +1,6 @@
 package oo2;
 import java.awt.Color;
+import java.lang.Math;
 
 enum ShapeType {
 	RECTANGLE,
@@ -76,6 +77,13 @@ public class Ball {
 			this.y = 0;
 			this.dirY *= -1;
 		}  
+		
+		if (Math.abs(this.dirX) > 10) {
+			this.dirX = 10 * Integer.signum(this.dirX);
+		}
+		if (Math.abs(this.dirY) > 10) {
+			this.dirY = 10 * Integer.signum(this.dirY);
+		}
 	}
 	
 	public void collision(Ball b) {
