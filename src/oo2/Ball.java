@@ -51,4 +51,18 @@ public class Ball {
 			this.dirY *= -1;
 		}  
 	}
+	
+	public void collision(Ball b) {
+		if ((this.x + this.width >= b.x) && (this.x < b.x + b.width)) {
+			if ((this.y + this.height >= b.y) && (this.y < b.y + b.height)) {
+				this.dirX *= -1;
+				b.dirX *= -1;
+				this.dirY *= -1;
+				b.dirY *= -1;
+				this.move();
+				b.move();
+			}
+		}
+	}
+	
 }
