@@ -4,7 +4,9 @@ import java.awt.Color;
 enum ShapeType {
 	RECTANGLE,
 	OVAL,
-	ROUNDRECTANGLE
+	ROUNDRECTANGLE,
+	ARC,
+	RECTANGLE3D
 }
 
 public class Ball {
