@@ -37,33 +37,35 @@ public class Game extends Canvas {
 				tt.cancel();
 			}
 		});
-
-		//		jframe.addKeyListener(new KeyListener() {
-//			@Override
-//			public void keyTyped(KeyEvent e) {}
-//			
-//			@Override
-//			public void keyReleased(KeyEvent e) {}
-//			
-//			@Override
-//			public void keyPressed(KeyEvent e) {
-//				if (e.getKeyChar() == 'w') {
-//					
-//				}
-//				if (e.getKeyChar() == 'a') {
-//					
-//				}
-//				if (e.getKeyChar() == 's') {
-//					
-//				}
-//				if (e.getKeyChar() == 'd') {
-//					
-//				}
-//			}
-//		});
+		
+		jframe.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyChar() == 'w') {
+					Game.player.dirY -= 1;
+				}
+				if (e.getKeyChar() == 'a') {
+					Game.player.dirX -= 1;
+				}
+				if (e.getKeyChar() == 's') {
+					Game.player.dirY += 1;
+				}
+				if (e.getKeyChar() == 'd') {
+					Game.player.dirX += 1;
+				}
+			}
+		});
+		
 	}
 	
 	public void draw() {
+		Game.player.move();
 		for (Ball ball : this.balls) {
 			ball.move();
 			for (Ball b : this.balls) {
@@ -72,12 +74,15 @@ public class Game extends Canvas {
 				}
 				ball.collision(b);
 			}
+			ball.collision(Game.player);
 		}
 		this.repaint();
 	}
 	
 	public void paint(Graphics g) {
 		g.drawRect(0, 0, Ball.getWorldW(), Ball.getWorldH());
+		g.setColor(Color.BLACK);
+		g.drawOval(Game.player.x, Game.player.y, Game.player.width, Game.player.height);
 		for (Ball ball : this.balls) {
 			g.setColor(ball.getColour());
 			g.drawOval(ball.x, ball.y, ball.width, ball.height);
