@@ -1,21 +1,33 @@
 package oo2;
+import java.awt.Color;
 
 public class Ball {
 	public int x, y, width, height;
 	private int dirX, dirY;
 	private static int worldW, worldH;
+	private Color colour;
 	
-	Ball(int x, int y, int width, int height, int dirX, int dirY) {
+	
+	Ball(int x, int y, int width, int height, int dirX, int dirY, Color c) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		this.dirX = dirX;
 		this.dirY = dirY;
+		this.colour = c;
 	}
 	
 	Ball(int x, int y, int width, int height) {
-		this(x, y, width, height, 1, 1);
+		this(x, y, width, height, 1, 1, Color.BLACK);
+	}
+	
+	public void setColour(Color c) {
+		this.colour = c;
+	}
+	
+	public Color getColour() {
+		return this.colour;
 	}
 	
 	public static void setWorld(int w, int h) {
