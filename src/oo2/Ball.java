@@ -59,8 +59,6 @@ public class Ball {
 				b.dirX *= -1;
 				this.dirY *= -1;
 				b.dirY *= -1;
-				this.move();
-				b.move();
 			}
 		}
 	}
