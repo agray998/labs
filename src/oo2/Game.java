@@ -6,7 +6,8 @@ import java.util.*;
 import javax.swing.*;
 
 public class Game extends Canvas {
-	// create array of 3 balls
+	static Random rand = new Random();
+	static Ball[] balls = {new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1)};
 	
 	Game() {
 		JFrame jframe = new JFrame();
@@ -35,13 +36,17 @@ public class Game extends Canvas {
 	}
 	
 	public void draw() {
-		// update positions of all balls
+		for (Ball ball : Game.balls) {
+			ball.move();
+		}
 		this.repaint();
 	}
 	
 	public void paint(Graphics g) {
 		g.drawRect(0, 0, 300, 300);
-		// redraw balls
+		for (Ball ball : Game.balls) {
+			g.drawOval(ball.x, ball.y, ball.width, ball.height);
+		}
 	}
 
 }
