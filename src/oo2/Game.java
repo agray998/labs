@@ -41,6 +41,12 @@ public class Game extends Canvas {
 	public void draw() {
 		for (Ball ball : this.balls) {
 			ball.move();
+			for (Ball b : this.balls) {
+				if (ball == b) {
+					continue;
+				}
+				ball.collision(b);
+			}
 		}
 		this.repaint();
 	}
