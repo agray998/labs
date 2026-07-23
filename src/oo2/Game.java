@@ -90,6 +90,12 @@ public class Game extends Canvas {
 		case ROUNDRECTANGLE:
 			g.drawRoundRect(b.x, b.y, b.width, b.height, 1, 1);
 			break;
+		case ARC:
+			g.drawArc(b.x, b.y, b.width, b.height, -45, -270);
+			break;
+		case RECTANGLE3D:
+			g.draw3DRect(b.x, b.y, b.width, b.height, true);
+			break;
 		}
 	}
 	
