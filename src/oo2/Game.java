@@ -36,6 +36,30 @@ public class Game extends Canvas {
 				tt.cancel();
 			}
 		});
+
+		//		jframe.addKeyListener(new KeyListener() {
+//			@Override
+//			public void keyTyped(KeyEvent e) {}
+//			
+//			@Override
+//			public void keyReleased(KeyEvent e) {}
+//			
+//			@Override
+//			public void keyPressed(KeyEvent e) {
+//				if (e.getKeyChar() == 'w') {
+//					
+//				}
+//				if (e.getKeyChar() == 'a') {
+//					
+//				}
+//				if (e.getKeyChar() == 's') {
+//					
+//				}
+//				if (e.getKeyChar() == 'd') {
+//					
+//				}
+//			}
+//		});
 	}
 	
 	public void draw() {
