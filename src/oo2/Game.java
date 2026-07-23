@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class Game extends Canvas {
 	Random rand = new Random();
-	Ball[] balls = {new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.RED), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.GREEN), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.BLUE)};
-	private static Ball player = new Ball(200, 200, 30, 30, 0, 0, Color.BLACK);
+	Ball[] balls = {new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.RED, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.GREEN, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.BLUE, ShapeType.values()[rand.nextInt(ShapeType.values().length)])};
+	private static Ball player = new Ball(200, 200, 30, 30, 0, 0, Color.BLACK, ShapeType.RECTANGLE);
 	
 	Game() {
 		int w = rand.nextInt(300) + 300;
@@ -79,13 +79,28 @@ public class Game extends Canvas {
 		this.repaint();
 	}
 	
+	public void paintElems(Graphics g, Ball b) {
+		switch (b.getShape()) {
+		case OVAL:
+			g.drawOval(b.x, b.y, b.width, b.height);
+			break;
+		case RECTANGLE:
+			g.drawRect(b.x, b.y, b.width, b.height);
+			break;
+		case ROUNDRECTANGLE:
+			g.drawRoundRect(b.x, b.y, b.width, b.height, 1, 1);
+			break;
+		}
+	}
+	
 	public void paint(Graphics g) {
 		g.drawRect(0, 0, Ball.getWorldW(), Ball.getWorldH());
 		g.setColor(Color.BLACK);
-		g.drawOval(Game.player.x, Game.player.y, Game.player.width, Game.player.height);
+		paintElems(g, Game.player);
+		// g.drawOval(Game.player.x, Game.player.y, Game.player.width, Game.player.height);
 		for (Ball ball : this.balls) {
 			g.setColor(ball.getColour());
-			g.drawOval(ball.x, ball.y, ball.width, ball.height);
+			paintElems(g, ball);
 		}
 	}
 
