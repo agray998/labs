@@ -3,6 +3,7 @@ package oo2;
 public class Ball {
 	public int x, y, width, height;
 	private int dirX, dirY;
+	private static int worldW, worldH;
 	
 	Ball(int x, int y, int width, int height, int dirX, int dirY) {
 		this.x = x;
@@ -17,19 +18,32 @@ public class Ball {
 		this(x, y, width, height, 1, 1);
 	}
 	
+	public static void setWorld(int w, int h) {
+		Ball.worldH = h;
+		Ball.worldW = w;
+	}
+	
+	public static int getWorldW() {
+		return Ball.worldW;
+	}
+	
+	public static int getWorldH() {
+		return Ball.worldH;
+	}
+	
 	public void move() {
 		this.x += this.dirX;
 		this.y += this.dirY;
-		if (this.x + this.width >= 300) {
-			this.x = 300 - this.width;
+		if (this.x + this.width >= Ball.worldW) {
+			this.x = Ball.worldW - this.width;
 			this.dirX *= -1;
 		}
 		if (this.x <= 0) {
 			this.x = 0;
 			this.dirX *= -1;
 		}
-		if (this.y + this.height >= 300) {
-			this.y = 300 - this.height;
+		if (this.y + this.height >= Ball.worldH) {
+			this.y = Ball.worldH - this.height;
 			this.dirY *= -1;
 		}
 		if (this.y <= 0) {
