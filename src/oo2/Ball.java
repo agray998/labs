@@ -1,14 +1,21 @@
 package oo2;
 import java.awt.Color;
 
+enum ShapeType {
+	RECTANGLE,
+	OVAL,
+	ROUNDRECTANGLE
+}
+
 public class Ball {
 	public int x, y, width, height;
 	int dirX, dirY;
 	private static int worldW, worldH;
 	private Color colour;
+	private ShapeType shape;
 	
 	
-	Ball(int x, int y, int width, int height, int dirX, int dirY, Color c) {
+	Ball(int x, int y, int width, int height, int dirX, int dirY, Color c, ShapeType s) {
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -16,10 +23,15 @@ public class Ball {
 		this.dirX = dirX;
 		this.dirY = dirY;
 		this.colour = c;
+		this.shape = s;
 	}
 	
 	Ball(int x, int y, int width, int height) {
-		this(x, y, width, height, 1, 1, Color.BLACK);
+		this(x, y, width, height, 1, 1, Color.BLACK, ShapeType.OVAL);
+	}
+	
+	public ShapeType getShape() {
+		return this.shape;
 	}
 	
 	public void setColour(Color c) {
