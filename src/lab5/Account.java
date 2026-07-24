@@ -15,20 +15,23 @@ public class Account {
 		this(id, owner, 0);
 	}
 	
-	public void Deposit(double amount) {
+	public void close() {
+		System.out.printf("Account %d is closed\n", this.id);
+	}
+	
+	public void Deposit(double amount) throws IllegalArgumentException {
 		if (amount < 0) {
-			System.out.printf("Deposit amount %g is invalid: less than zero\n", amount);
+			throw new IllegalArgumentException();
 		} else {
 			this.balance += amount;
 		}
 	}
 	
-	public void Withdraw(double amount) {
-		if (amount > this.balance) {
-			System.out.println("Insufficient funds");
-		} else {
-			this.balance -= amount;
+	public void Withdraw(double amount) throws IllegalArgumentException {
+		if (this.balance < amount) {
+			throw new IllegalArgumentException();
 		}
+ 		this.balance -= amount;
 	}
 	
 	public String getDetails() {
