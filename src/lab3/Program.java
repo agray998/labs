@@ -34,7 +34,7 @@ public class Program {
 		String mainCourse; 
 		do {
 		    mainCourse = Program.getString("What main dish would you like (fish, burgers or veg)?");
-		} while (!(mainCourse.toLowerCase().equals("veg")) && !(mainCourse.toLowerCase().equals("fish")) && !(mainCourse.toLowerCase().equals("burgers"))
+		} while (!(mainCourse.toLowerCase().equals("veg")) && !(mainCourse.toLowerCase().equals("fish")) && !(mainCourse.toLowerCase().equals("burgers")));
 		// switch (mainCourse) {
 		//     case "veg", "fish", "burgers":
 		//     	break;

@@ -34,7 +34,7 @@ public class Program {
 			  break;
 		}
 		
-		var bigX = Double.parseDouble(args[1]);
+		double bigX = Double.parseDouble(args[1]);
 		double x = bigX * 2;
 		System.out.println(x);
 	}

@@ -4,13 +4,14 @@ import java.awt.event.*;
 import java.util.Timer;
 import java.util.*;
 import javax.swing.*;
+import java.util.List;
 
 public class Game extends Canvas {
 	Random rand = new Random();
-	Ball[] balls = {new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.RED, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.GREEN, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.BLUE, ShapeType.values()[rand.nextInt(ShapeType.values().length)])};
+	// Ball[] balls = {new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.RED, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.GREEN, ShapeType.values()[rand.nextInt(ShapeType.values().length)]), new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.BLUE, ShapeType.values()[rand.nextInt(ShapeType.values().length)])};
+	List<Ball> balls = new ArrayList<Ball>();
 	private static Ball player = new Ball(200, 200, 30, 30, 0, 0, Color.BLACK, ShapeType.RECTANGLE);
-	
-	Game() {
+	Game(int numBalls) {
 		int w = rand.nextInt(300) + 300;
 		int h = rand.nextInt(300) + 300;
 		JFrame jframe = new JFrame();
@@ -19,6 +20,9 @@ public class Game extends Canvas {
 		jframe.pack();
 		jframe.setVisible(true);
 		Ball.setWorld(w, h);
+		for (int i = 0; i < numBalls; i++) {
+			this.balls.add(new Ball(rand.nextInt(300), rand.nextInt(300), 30, 30, rand.nextInt(10) + 1, rand.nextInt(10) + 1, Color.RED, ShapeType.values()[rand.nextInt(ShapeType.values().length)]));
+		}
 		
 		Timer t = new Timer();
 		TimerTask tt = new TimerTask() {
