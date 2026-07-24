@@ -6,7 +6,20 @@ public class Program {
 	static HashMap<String, Double> products = new HashMap<String, Double>();
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		part2();
+	}
+	
+	public static void processBaskets() {
+		ShoppingBasket b;
+		while (!queue.isEmpty()) {
+			b = queue.poll();
+			for (ShoppingBasketItem i : b.items) {
+				System.out.println(i.getDetails());
+			}
+		}
+	}
+	
+	public static void part2() {
 		products.put("chocolate bar", 2.5);
 		products.put("kitchen roll", 1.2);
 		products.put("garden trowel", 2.0);
@@ -25,30 +38,7 @@ public class Program {
 			b.add(it);
 			queue.offer(b);
 		}
-//		ShoppingBasketItem i1 = new ShoppingBasketItem("chocolate bar", 3, 0.7);
-//		ShoppingBasketItem i2 = new ShoppingBasketItem("kitchen roll", 2, 1.2);
-//		ShoppingBasketItem i3 = new ShoppingBasketItem("garden trowel", 1, 2.0);
-//		ShoppingBasket b1 = new ShoppingBasket();
-//		ShoppingBasket b2 = new ShoppingBasket();
-//		ShoppingBasket b3 = new ShoppingBasket();
-//		b1.add(i1);
-//		b2.add(i2);
-//		b3.add(i3);
-//		//System.out.println(b1.items.get(0).getDetails());
-//		queue.offer(b1);
-//		queue.offer(b2);
-//		queue.offer(b3);
 		processBaskets();
-	}
-	
-	public static void processBaskets() {
-		ShoppingBasket b;
-		while (!queue.isEmpty()) {
-			b = queue.poll();
-			for (ShoppingBasketItem i : b.items) {
-				System.out.println(i.getDetails());
-			}
-		}
 	}
 
 }
