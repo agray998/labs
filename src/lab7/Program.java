@@ -6,7 +6,8 @@ public class Program {
 	static HashMap<String, Double> products = new HashMap<String, Double>();
 
 	public static void main(String[] args) {
-		part2();
+		// part2();
+		new Zoo();
 	}
 	
 	public static void processBaskets() {
